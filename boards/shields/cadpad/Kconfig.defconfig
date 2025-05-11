@@ -2,4 +2,10 @@ if SHIELD_CADPAD
   config ZMK_KEYBOARD_NAME
     default "cadpad"
 
+config ZMK_PM_SOFT_OFF
+    default y
+
+CONFIG_ZMK_DISPLAY=y
+CONFIG_ZMK_EXT_POWER=y
+
 endif
