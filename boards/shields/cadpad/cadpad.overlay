@@ -1,4 +1,41 @@
 #include "cadpad.dtsi"
 
+/* 1. Configure SPI pins to match your harness */
+&pinctrl {
+  spi0_default: spi0_default {
+    group1 {
+      psels = <
+        NRF_PSEL(SPIM_SCK,  0, 17)  /* D2 = SCL  */
+        NRF_PSEL(SPIM_MOSI, 0, 20)  /* D3 = MOSI */
+      >;
+    };
+  };
+  spi0_sleep: spi0_sleep {
+    group1 {
+      psels = <
+        NRF_PSEL(SPIM_SCK,  0, 17)
+        NRF_PSEL(SPIM_MOSI, 0, 20)
+      >;
+      low-power-enable;
+    };
+  };
+};
 
+/* 2. Enable SPI controller, set CS, and bind display */
+&spi0 {
+  status = "okay";
+  pinctrl-0 = <&spi0_default>;
+  pinctrl-1 = <&spi0_sleep>;
+  pinctrl-names = "default", "sleep";
+  cs-gpios = <&gpio0 6 GPIO_ACTIVE_LOW>;  /* D1 = CS */
+  spi-max-frequency = <8000000>;
+
+  display0: display@0 {
+    compatible       = "sharp,ls0xx";
+    reg              = <0>;
+    width            = <160>;
+    height           = <68>;
+    bus-frequency    = <8000000>;
+  };
+};
 
