@@ -23,7 +23,7 @@
 // |     Z     |     M     |     K     |
 // |     A     |     B     |     C     |
             bindings = <
-                &ext_power EP_TOG    &soft_off    &kp K
+                &ext_power EP_TOG    &kp C   &kp K
                 &kp A    &kp B    &kp C
               &kp Z    &kp M    &kp K
                 &kp A    &kp B    &kp C
