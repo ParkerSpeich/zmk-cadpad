@@ -66,8 +66,8 @@
 // |      A      |       B       |       C      |
 // |    &trans   |    &trans     |     &trans   |
             bindings = <
-                        &ext_power EP_TOG    &bootloader   &sys_reset     &sys_reset      &bootloader
-                        &kp C                &kp Z         &kp M          &kp K      &kp A  
+                        &ext_power EP_TOG    &none   &none     &sys_reset      &bootloader
+                        &kp C                &kp K_VOL_UP         &kp K_VOL_DN          &kp K      &kp A  
                         &kp B                &kp C         &kp Z          &kp M      &kp K
          &mo_tog 2 1    &kp B                       &kp C                 &kp B      &kp P
             >;
